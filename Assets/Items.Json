@@ -1,0 +1,15 @@
+﻿[
+    {
+        "id": 1,
+        "name": "血瓶",
+        "type": "Consumable",
+        "qualityType": "Common",
+        "description": "这只是一个用来加血的小瓶子",
+        "capacity": 5,
+        "buyPrice": 10,
+        "sellPrice": 5,
+        "hp": 5,
+        "mp": 0,
+        "sprite": "Sprites/Items/hp"
+    }
+]

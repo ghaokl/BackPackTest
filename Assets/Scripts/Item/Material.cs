@@ -4,7 +4,7 @@ using UnityEngine;
 
 /*******************************************************************************
 ********************************************************************************
-**************	Title:	消耗品的类		
+**************	Title:	材料类		
 **************	Author:
 **************	Describe:
 **************	Function:
@@ -13,18 +13,8 @@ using UnityEngine;
 ********************************************************************************
 *********************************************************************************/
 
-public class Consumable : Item {
+public class Material :Item {
 
-    public int HP { get; set; }
-    public int MP { get; set; }
-
-    public Consumable(int id, string name, ItemType type, QualityType qualityType, string description, int capacity, int buyPrice, int sellPrice,string sprite,int hp,int mp) 
-        :base(id,name,type,qualityType,description,capacity,buyPrice,sellPrice,sprite)
-    {
-        this.HP = hp;
-        this.MP = mp;
-
-    }
 	
 }
 
