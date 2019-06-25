@@ -25,7 +25,19 @@ public class Consumable : Item {
         this.MP = mp;
 
     }
-	
+
+    public override string ToString()
+    {
+        string s = "";
+        s += ID.ToString();
+        s += Type;
+        s += Qualitytype;
+        s += Description;
+
+       
+        
+        return s;
+    }
 }
 
 
