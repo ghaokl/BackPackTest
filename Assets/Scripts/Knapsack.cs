@@ -13,10 +13,17 @@ using UnityEngine;
 ********************************************************************************
 *********************************************************************************/
 
-public class ItemUI : MonoBehaviour {
+public class Knapsack : MonoBehaviour {
 
-	public  Item Item { get; set; }
-    public  int Amount { get; set; }
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
 }
 
 
