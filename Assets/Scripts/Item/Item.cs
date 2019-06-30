@@ -67,6 +67,16 @@ public class Item  {
         Legendary,
         Artifact
     }
+
+    /// <summary>
+    /// 得到提示面板显示什么样的内容
+    /// </summary>
+    /// <returns></returns>
+    public virtual string GetToolTipText()
+    {
+        return Name;//TODO
+
+    }
 }
 
 

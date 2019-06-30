@@ -53,11 +53,11 @@ public class Equipment : Item {
     {
         Head,
         Neck,
+        Chest,
         Ring,
         Leg,
         Bracer,
-        Roots,
-        Trinket,
+        Roots,    
         Shoulder,
         Belt,
         OffHand

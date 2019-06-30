@@ -54,7 +54,7 @@ public class Inventory : MonoBehaviour {
         }
         else
         {
-            Slot slot = FindSameTypeSlot(item);
+            Slot slot = FindSameIDSlot(item);
             if(slot!=null)
             {
                 slot.StoreItem(item);
@@ -93,11 +93,11 @@ public class Inventory : MonoBehaviour {
         return null;
     }
 
-    private Slot FindSameTypeSlot(Item item)
+    private Slot FindSameIDSlot(Item item)
     {
         foreach(Slot slot in slotList)
         {
-            if(slot.transform.childCount>=1&&slot.GetItemType()==item.Type&&slot.IsFull()==false)
+            if(slot.transform.childCount>=1&&slot.GetItemID()==item.ID&&slot.IsFull()==false)
             {
                 return slot;
             }

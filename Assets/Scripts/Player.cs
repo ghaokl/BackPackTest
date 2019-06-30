@@ -13,23 +13,24 @@ using UnityEngine;
 ********************************************************************************
 *********************************************************************************/
 
-public class Knapsack : Inventory
-{
+public class Player : MonoBehaviour {
 
-    #region 单例模式
-    private static Knapsack _instance;
-    public static Knapsack Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.Find("KnapsackPanel").GetComponent<Knapsack>();
-            }
-            return _instance;
-        }
-    }
-    #endregion
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+
+        //G 随机得到一个物品放到背包里面
+	    if (Input.GetKeyDown(KeyCode.G))
+	    {
+	        int id = Random.Range(1, 13);
+	        Knapsack.Instance.StoreItem(id);
+	    }
+		
+	}
 }
 
 

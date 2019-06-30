@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*******************************************************************************
 ********************************************************************************
@@ -40,10 +41,29 @@ public class InventoryManager : MonoBehaviour
     /// </summary>
     private  List<Item> itemList;
 
+    private ToolTip toolTip;
+    private bool isToolTipshow = false;
+
+    private Canvas canvas;
+    private Vector2 toolTipPosOffset=new Vector2(10,-10);
 
     public void Start()
     {
         ParseItemJson();
+        toolTip = GameObject.FindObjectOfType<ToolTip>();
+        canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+    }
+
+    void Update()
+    {
+        if (isToolTipshow)
+        {
+            //控制显示面板跟随鼠标
+            Vector2 position;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform,
+                Input.mousePosition, null, out position);        
+            toolTip.SetLocalPosition(position + toolTipPosOffset);
+        }
     }
     /// <summary>
     /// 解析物品信息
@@ -81,6 +101,17 @@ public class InventoryManager : MonoBehaviour
                     break;
                 case Item.ItemType.Equipment:
                     //TODO
+                    int strength = (int) temp["strength"].n;
+                    int intelligent = (int) temp["intelligent"].n;
+                    int agility = (int) temp["agility"].n;
+                    int stamina = (int) temp["stamina"].n;
+                    
+                    
+                    Equipment.EquipmentType equipType =
+                        (Equipment.EquipmentType)
+                            System.Enum.Parse(typeof (Equipment.EquipmentType), temp["equipType"].str);
+                    
+                    item=new Equipment(id,name,type,qualitype,description,capacity,buyPrice,sellPrice,sprite,strength,intelligent,agility,stamina,equipType);
                     break;
                 case Item.ItemType.Weapon:
                     //TODO
@@ -90,7 +121,7 @@ public class InventoryManager : MonoBehaviour
                 
             }
             itemList.Add(item);
-            Debug.Log(item);
+            
         }
 
     }
@@ -109,6 +140,18 @@ public class InventoryManager : MonoBehaviour
             
         }
         return null;
+    }
+
+    public void ShowToolTip(string content)
+    {      
+        isToolTipshow = true;
+        toolTip.Show(content);
+    }
+
+    public void HideToolTip()
+    {
+        isToolTipshow = false;
+        toolTip.Hide();
     }
 }
 
